@@ -43,6 +43,7 @@ namespace ProxyKit
         {
             try
             {
+                UpstreamRequest.Headers.FixHeaderValues();
                 return await _httpClient
                     .SendAsync(
                         UpstreamRequest,
