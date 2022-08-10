@@ -27,15 +27,7 @@ namespace ProxyKit
         {
             foreach (var item in value)
             {
-                var x = item
-                    .Replace(" ", "")
-                    .Replace(">", "")
-                    .Replace("<", "")
-                    .Replace("\\", "")
-                    .Replace("\"", "")
-                    .Replace("&", "");
-
-                if (x != System.Web.HttpUtility.HtmlEncode(x))
+                if (item.Any(u => u > 127))
                     return true;
             }
             return false;
